@@ -38,7 +38,6 @@ typedef unsigned __int64 ImU64;
 //typedef unsigned long long ImU64;
 #endif
 
-
 #ifdef CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 typedef struct ImGuiTableColumnSettings ImGuiTableColumnSettings;
 typedef struct ImGuiTableCellData ImGuiTableCellData;
