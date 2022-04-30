@@ -2024,6 +2024,10 @@ CIMGUI_API void ImDrawList_AddLine(ImDrawList* self,const ImVec2 p1,const ImVec2
 {
     return self->AddLine(p1,p2,col,thickness);
 }
+CIMGUI_API void ImDrawList_AddLine2(ImDrawList* self, const ImVec2 p1, const ImVec2 p2, ImU32 col0, ImU32 col1, float thickness0, float thickness1)
+{
+    return self->AddLine2(p1, p2, col0, col1, thickness0, thickness1);
+}
 CIMGUI_API void ImDrawList_AddRect(ImDrawList* self,const ImVec2 p_min,const ImVec2 p_max,ImU32 col,float rounding,ImDrawFlags flags,float thickness)
 {
     return self->AddRect(p_min,p_max,col,rounding,flags,thickness);

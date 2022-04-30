@@ -40,6 +40,14 @@ namespace ImGui
 		return window->DC.CurrLineSize;
 	}
 
+	ImVec2 ImGui::GetCursorMaxPos()
+	{
+		ImGuiContext& g = *GImGui;
+		ImGuiWindow* window = g.CurrentWindow;
+
+		return window->DC.CursorMaxPos;
+	}
+
 	void ImGui::SetCurrentLineSize(const ImVec2& size)
 	{
 		ImGuiContext& g = *GImGui;

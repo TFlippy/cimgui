@@ -39,3 +39,6 @@ cimgui/x64/
 # Test / Build
 bld/
 build/
+
+local/
+.vs/

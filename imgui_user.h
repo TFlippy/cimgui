@@ -10,6 +10,7 @@ namespace ImGui
 	IMGUI_API ImVec2		GetLineStart();
 	IMGUI_API ImVec2        GetRemainingSpace();
 	IMGUI_API ImVec2        GetCurrentLineSize();
+	IMGUI_API ImVec2        GetCursorMaxPos();
 	IMGUI_API void          SetCurrentLineSize(const ImVec2& size);
 	IMGUI_API void          ResetLine(float offset_x, float offset_y);
 	IMGUI_API void          NewLine2(float height);
@@ -50,6 +51,11 @@ CIMGUI_API void igGetLineStart(ImVec2* pOut)
 	*pOut = ImGui::GetLineStart();
 }
 
+CIMGUI_API void igGetCursorMaxPos(ImVec2* pOut)
+{
+	*pOut = ImGui::GetCursorMaxPos();
+}
+
 CIMGUI_API void igGetRemainingSpace(ImVec2* pOut)
 {
 	*pOut = ImGui::GetRemainingSpace();
@@ -63,4 +69,9 @@ CIMGUI_API void igGetCurrentLineSize(ImVec2* pOut)
 CIMGUI_API void igSetCurrentLineSize(const ImVec2 size)
 {
 	return ImGui::SetCurrentLineSize(size);
+}
+
+CIMGUI_API void igCalcTextSize2(const char* text, const char* text_end, char hide_text_after_double_hash, float wrap_width, float font_size, ImFont* font, ImVec2* pOut)
+{
+	*pOut = ImGui::CalcTextSize2(text, text_end, hide_text_after_double_hash, wrap_width, font_size, font);
 }
