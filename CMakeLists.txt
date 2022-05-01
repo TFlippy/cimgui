@@ -8,7 +8,6 @@ else()
 	set(TABLES_SOURCE "")
 endif()
 
-
 #general settings
 file(GLOB IMGUI_SOURCES
     cimgui.cpp
@@ -22,6 +21,11 @@ file(GLOB IMGUI_SOURCES
 set(IMGUI_STATIC "no" CACHE STRING "Build as a static library")
 set(IMGUI_FREETYPE "no" CACHE STRING "Build with freetype library")
 set(IMGUI_LIBRARIES )
+
+
+set(CMAKE_CXX_FLAGS "-msse4.1 -Wall -Wextra -fdeclspec")
+set(CMAKE_CXX_FLAGS_DEBUG "-Wall")
+set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -Wall -O3")
 
 if(IMGUI_FREETYPE)
 	FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
