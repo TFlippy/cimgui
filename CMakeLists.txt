@@ -10,6 +10,7 @@ endif()
 
 #general settings
 file(GLOB IMGUI_SOURCES
+    imgui_user.cpp
     cimgui.cpp
     imgui/imgui.cpp
     imgui/imgui_draw.cpp
