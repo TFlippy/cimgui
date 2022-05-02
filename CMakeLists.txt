@@ -24,7 +24,7 @@ set(IMGUI_FREETYPE "no" CACHE STRING "Build with freetype library")
 set(IMGUI_LIBRARIES )
 
 
-set(CMAKE_CXX_FLAGS "-msse4.1 -Wall -Wextra -fdeclspec")
+set(CMAKE_CXX_FLAGS "-msse4.1 -Wall -Wextra -fdeclspec -fpack-struct=8")
 set(CMAKE_CXX_FLAGS_DEBUG "-Wall")
 set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -Wall -O3")
 
