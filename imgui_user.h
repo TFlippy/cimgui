@@ -19,6 +19,11 @@ namespace ImGui
 	IMGUI_API void          RenderText2(ImVec2 pos, const char* text, const char* text_end, bool hide_text_after_hash, ImFont* font, float font_size, ImU32 color);
 
 	IMGUI_API void          TextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg);
+
+	IMGUI_API ImVec2		CalcTextSize2(const char* text, const char* text_end, bool hide_text_after_double_hash, float wrap_width, float font_size, ImFont* font);
+	IMGUI_API bool			Selectable2(ImGuiID id, bool selected, ImGuiSelectableFlags flags, const ImRect& rect);
+
+	IMGUI_API ImRect		GetLastItemRect();
 }
 
 CIMGUI_API void igBeginGroup2(const ImVec2 size)
@@ -68,10 +73,20 @@ CIMGUI_API void igGetCurrentLineSize(ImVec2* pOut)
 
 CIMGUI_API void igSetCurrentLineSize(const ImVec2 size)
 {
-	return ImGui::SetCurrentLineSize(size);
+	ImGui::SetCurrentLineSize(size);
 }
 
 CIMGUI_API void igCalcTextSize2(const char* text, const char* text_end, char hide_text_after_double_hash, float wrap_width, float font_size, ImFont* font, ImVec2* pOut)
 {
 	*pOut = ImGui::CalcTextSize2(text, text_end, hide_text_after_double_hash, wrap_width, font_size, font);
+}
+
+CIMGUI_API void igSelectable2(ImGuiID id, bool selected, ImGuiSelectableFlags flags, const ImRect& rect, bool* pOut)
+{
+	*pOut = ImGui::Selectable2(id, selected, flags, rect);
+}
+
+CIMGUI_API void igGetLastItemRect(ImRect* pOut)
+{
+	*pOut = ImGui::GetLastItemRect();
 }
