@@ -18,7 +18,7 @@ namespace ImGui
 	IMGUI_API void          RenderTextWrapped2(ImVec2 pos, const char* text, const char* text_end, float wrap_width, ImFont* font, float font_size, ImU32 color);
 	IMGUI_API void          RenderText2(ImVec2 pos, const char* text, const char* text_end, bool hide_text_after_hash, ImFont* font, float font_size, ImU32 color);
 
-	IMGUI_API void          TextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg);
+	IMGUI_API void          TextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg, bool clip);
 
 	IMGUI_API ImVec2		CalcTextSize2(const char* text, const char* text_end, bool hide_text_after_double_hash, float wrap_width, float font_size, ImFont* font);
 	IMGUI_API bool			Selectable2(ImGuiID id, bool selected, ImGuiSelectableFlags flags, const ImRect& rect);
@@ -46,9 +46,9 @@ CIMGUI_API void igNewLine2(float height)
 	return ImGui::NewLine2(height);
 }
 
-CIMGUI_API void igTextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg)
+CIMGUI_API void igTextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg, bool clip)
 {
-	return ImGui::TextEx2(text, text_end, flags, font, font_size, color, color_bg, offset_bg);
+	return ImGui::TextEx2(text, text_end, flags, font, font_size, color, color_bg, offset_bg, clip);
 }
 
 CIMGUI_API void igGetLineStart(ImVec2* pOut)
@@ -89,4 +89,14 @@ CIMGUI_API void igSelectable2(ImGuiID id, bool selected, ImGuiSelectableFlags fl
 CIMGUI_API void igGetLastItemRect(ImRect* pOut)
 {
 	*pOut = ImGui::GetLastItemRect();
+}
+
+CIMGUI_API void igGetInt(ImGuiID key, int val_default, int* val_out)
+{
+	*val_out = ImGui::GetStateStorage()->GetInt(key, val_default);
+}
+
+CIMGUI_API void igSetInt(ImGuiID key, int val)
+{
+	ImGui::GetStateStorage()->SetInt(key, val);
 }

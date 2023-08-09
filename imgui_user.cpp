@@ -175,7 +175,7 @@ namespace ImGui
 	}
 
 
-	void ImGui::TextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg)
+	void ImGui::TextEx2(const char* text, const char* text_end, ImGuiTextFlags flags, ImFont* font, float font_size, ImU32 color, ImU32 color_bg, ImVec2 offset_bg, bool clip)
 	{
 		ImGuiWindow* window = GetCurrentWindow();
 		if (window->SkipItems)
@@ -274,7 +274,12 @@ namespace ImGui
 			const ImVec2 text_size = CalcTextSize2(text_begin, text_end, false, wrap_width, font_size, font);
 
 			ImRect bb(text_pos, text_pos + text_size);
-			ItemSize(text_size, 0.0f);
+			if (clip)
+			{
+				bb.ClipWithFull(window->ClipRect);
+			}
+
+			ItemSize(bb.GetSize(), 0.0f);
 			if (!ItemAdd(bb, 0))
 				return;
 
