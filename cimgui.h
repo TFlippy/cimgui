@@ -1019,7 +1019,7 @@ struct ImGuiTableColumnSortSpecs
     ImGuiID ColumnUserID;
     ImS16 ColumnIndex;
     ImS16 SortOrder;
-    ImGuiSortDirection SortDirection : 8;
+    ImGuiSortDirection SortDirection;
 };
 struct ImGuiTableSortSpecs
 {
@@ -1183,9 +1183,9 @@ struct ImFontConfig
 };
 struct ImFontGlyph
 {
-    unsigned int Colored : 1;
-    unsigned int Visible : 1;
-    unsigned int Codepoint : 30;
+    unsigned int Colored;
+    unsigned int Visible;
+    unsigned int Codepoint;
     float AdvanceX;
     float X0, Y0, X1, Y1;
     float U0, V0, U1, V1;
@@ -1773,19 +1773,19 @@ struct ImGuiDockNode
     ImGuiID LastFocusedNodeId;
     ImGuiID SelectedTabId;
     ImGuiID WantCloseTabId;
-    ImGuiDataAuthority AuthorityForPos :3;
-    ImGuiDataAuthority AuthorityForSize :3;
-    ImGuiDataAuthority AuthorityForViewport :3;
-    bool IsVisible :1;
-    bool IsFocused :1;
-    bool HasCloseButton :1;
-    bool HasWindowMenuButton :1;
-    bool WantCloseAll :1;
-    bool WantLockSizeOnce :1;
-    bool WantMouseMove :1;
-    bool WantHiddenTabBarUpdate :1;
-    bool WantHiddenTabBarToggle :1;
-    bool MarkedForPosSizeWrite :1;
+    ImGuiDataAuthority AuthorityForPos;
+    ImGuiDataAuthority AuthorityForSize;
+    ImGuiDataAuthority AuthorityForViewport;
+    bool IsVisible;
+    bool IsFocused;
+    bool HasCloseButton;
+    bool HasWindowMenuButton;
+    bool WantCloseAll;
+    bool WantLockSizeOnce;
+    bool WantMouseMove;
+    bool WantHiddenTabBarUpdate;
+    bool WantHiddenTabBarToggle;
+    bool MarkedForPosSizeWrite;
 };
 typedef enum {
     ImGuiWindowDockStyleCol_Text,
@@ -2204,10 +2204,10 @@ struct ImGuiWindow
     ImS8 HiddenFramesCannotSkipItems;
     ImS8 HiddenFramesForRenderOnly;
     ImS8 DisableInputsFrames;
-    ImGuiCond SetWindowPosAllowFlags : 8;
-    ImGuiCond SetWindowSizeAllowFlags : 8;
-    ImGuiCond SetWindowCollapsedAllowFlags : 8;
-    ImGuiCond SetWindowDockAllowFlags : 8;
+    ImGuiCond SetWindowPosAllowFlags;
+    ImGuiCond SetWindowSizeAllowFlags;
+    ImGuiCond SetWindowCollapsedAllowFlags;
+    ImGuiCond SetWindowDockAllowFlags;
     ImVec2 SetWindowPosVal;
     ImVec2 SetWindowPosPivot;
     ImVector_ImGuiID IDStack;
@@ -2243,9 +2243,9 @@ struct ImGuiWindow
     int MemoryDrawListIdxCapacity;
     int MemoryDrawListVtxCapacity;
     bool MemoryCompacted;
-    bool DockIsActive :1;
-    bool DockTabIsVisible :1;
-    bool DockTabWantClose :1;
+    bool DockIsActive;
+    bool DockTabIsVisible;
+    bool DockTabWantClose;
     short DockOrder;
     ImGuiWindowDockStyle DockStyle;
     ImGuiDockNode* DockNode;
@@ -2359,9 +2359,9 @@ struct ImGuiTableColumn
     ImS8 NavLayerCurrent;
     ImU8 AutoFitQueue;
     ImU8 CannotSkipItemsQueue;
-    ImU8 SortDirection : 2;
-    ImU8 SortDirectionsAvailCount : 2;
-    ImU8 SortDirectionsAvailMask : 4;
+    ImU8 SortDirection;
+    ImU8 SortDirectionsAvailCount;
+    ImU8 SortDirectionsAvailMask;
     ImU8 SortDirectionsAvailList;
 };
 struct ImGuiTableCellData
@@ -2394,8 +2394,8 @@ struct ImGuiTable
     float RowMinHeight;
     float RowTextBaseline;
     float RowIndentOffsetX;
-    ImGuiTableRowFlags RowFlags : 16;
-    ImGuiTableRowFlags LastRowFlags : 16;
+    ImGuiTableRowFlags RowFlags;
+    ImGuiTableRowFlags LastRowFlags;
     int RowBgColorCounter;
     ImU32 RowBgColor[2];
     ImU32 BorderColorStrong;
@@ -2490,9 +2490,9 @@ struct ImGuiTableColumnSettings
     ImGuiTableColumnIdx Index;
     ImGuiTableColumnIdx DisplayOrder;
     ImGuiTableColumnIdx SortOrder;
-    ImU8 SortDirection : 2;
-    ImU8 IsEnabled : 1;
-    ImU8 IsStretch : 1;
+    ImU8 SortDirection;
+    ImU8 IsEnabled;
+    ImU8 IsStretch;
 };
 struct ImGuiTableSettings
 {
